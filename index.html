@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendario FestiPaz</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="brand">
+      <a class="logo" href="#">FestiPaz</a>
+    </header>
+
+    <section class="calendar-section">
+      <h1>Calendario del <span id="year-title">2026</span></h1>
+      <div id="calendar" class="year-calendar"></div>
+    </section>
+
+    <section class="other-years">
+      <h2>Calendario para otros Años:</h2>
+      <div id="year-buttons" class="year-buttons"></div>
+    </section>
+  </main>
+
+  <div id="tooltip" class="tooltip">
+    <h3 id="tooltip-title"></h3>
+    <p id="tooltip-subtitle"></p>
+    <p id="tooltip-extra"></p>
+  </div>
+
+  <div id="date-modal" class="modal hidden">
+    <div class="modal-card">
+      <button id="close-modal" class="modal-close" type="button">×</button>
+      <h2 id="modal-title"></h2>
+      <p id="modal-subtitle"></p>
+      <p id="modal-extra"></p>
+    </div>
+  </div>
+
+  <script src="js/calendar.js"></script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  color: #28313d;
+  background: #ffffff;
+}
+
+.page {
+  width: min(1500px, 92vw);
+  margin: 0 auto;
+  padding-bottom: 60px;
+}
+
+.brand {
+  height: 86px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #c93558;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 4px;
+  width: 150px;
+  height: 58px;
+  font-size: 17px;
+}
+
+.calendar-section h1 {
+  margin: 34px 0 58px;
+  font-size: clamp(32px, 3vw, 44px);
+  line-height: 1.1;
+  font-weight: 900;
+}
+
+.year-calendar {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(190px, 1fr));
+  gap: 76px 34px;
+}
+
+.month-title {
+  font-size: 21px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #8d949c;
+  font-weight: 900;
+}
+
+.month-title span {
+  font-weight: 400;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+th,
+td {
+  text-align: center;
+  height: 29px;
+  font-size: 14px;
+}
+
+th {
+  color: #586675;
+  height: 24px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.week-number {
+  color: #a5adb5;
+  font-size: 11px;
+  width: 24px;
+}
+
+.day {
+  color: #8792a0;
+  cursor: pointer;
+  border-radius: 999px;
+  transition: background .15s ease, color .15s ease, transform .15s ease;
+}
+
+.day:hover {
+  background: #f0f1f4;
+  color: #28313d;
+  transform: scale(1.06);
+}
+
+.sunday,
+.saturday {
+  color: #c70039;
+  font-weight: 800;
+}
+
+.today {
+  outline: 3px solid #111;
+  color: #111;
+  font-weight: 800;
+}
+
+.selected {
+  background: #111;
+  color: #fff !important;
+  font-weight: 900;
+}
+
+.empty {
+  color: transparent;
+}
+
+.tooltip {
+  position: fixed;
+  display: none;
+  background: #000;
+  color: #fff;
+  padding: 18px 24px;
+  min-width: 380px;
+  max-width: 520px;
+  z-index: 50;
+  pointer-events: none;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .25);
+}
+
+.tooltip h3 {
+  font-size: 23px;
+  line-height: 1.2;
+  margin-bottom: 6px;
+  font-weight: 900;
+}
+
+.tooltip p {
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.other-years {
+  margin-top: 70px;
+}
+
+.other-years h2 {
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.year-buttons button {
+  border: 0;
+  background: #eeeeee;
+  color: #28313d;
+  padding: 14px 20px;
+  margin: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.year-buttons button.active {
+  background: #000;
+  color: #fff;
+  font-weight: 900;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-card {
+  position: relative;
+  width: min(560px, 90vw);
+  background: #000;
+  color: #fff;
+  padding: 24px 42px 24px 32px;
+}
+
+.modal-card h2 {
+  font-size: 25px;
+  margin-bottom: 8px;
+  font-weight: 900;
+}
+
+.modal-card p {
+  font-size: 19px;
+  margin-top: 3px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+  .year-calendar {
+    grid-template-columns: repeat(4, minmax(190px, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .year-calendar {
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: 54px 26px;
+  }
+}
+
+@media (max-width: 650px) {
+  .page {
+    width: min(430px, 92vw);
+  }
+
+  .brand {
+    height: 70px;
+  }
+
+  .logo {
+    width: 132px;
+    height: 52px;
+    font-size: 15px;
+  }
+
+  .calendar-section h1 {
+    margin: 24px 0 38px;
+  }
+
+  .year-calendar {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .tooltip {
+    min-width: 280px;
+    max-width: 90vw;
+  }
+}
