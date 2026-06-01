@@ -26,6 +26,7 @@ const tooltipSubtitle = document.getElementById('tooltip-subtitle');
 const tooltipExtra = document.getElementById('tooltip-extra');
 
 let selectedDay = null;
+let tooltipTimeout = null;
 
 function getISOWeek(date) {
   const temp = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
@@ -74,6 +75,8 @@ function getDayInfo(date) {
 }
 
 function showTooltip(event, date) {
+  clearTimeout(tooltipTimeout);
+
   const info = getDayInfo(date);
 
   tooltipTitle.textContent = info.title;
@@ -104,7 +107,9 @@ function moveTooltip(event) {
 }
 
 function hideTooltip() {
-  tooltip.style.display = 'none';
+  tooltipTimeout = setTimeout(() => {
+    tooltip.style.display = 'none';
+  }, 80);
 }
 
 function openDateModal(cell, date) {
@@ -273,6 +278,23 @@ modal.addEventListener('click', (event) => {
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     closeDateModal();
+    return;
+  }
+
+  if (event.key === 'ArrowLeft') {
+    renderCalendar(YEAR - 1);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  if (event.key === 'ArrowRight') {
+    renderCalendar(YEAR + 1);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }
 });
 
